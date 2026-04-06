@@ -24,15 +24,15 @@ export default function HomePage() {
             <a
               href="/hazard"
               style={{
-                color: "#fff",
+                color: "#000",
                 fontSize: 12,
                 fontWeight: 700,
                 textDecoration: "none",
                 letterSpacing: "0.05em",
                 padding: "9px 16px",
                 borderRadius: 8,
-                background: "linear-gradient(135deg, #7a0015, #cc1525, #ff1a2e)",
-                boxShadow: "0 3px 12px rgba(255,26,46,0.4)",
+                background: "linear-gradient(135deg, #b8860b, #e6a800, #ffd000)",
+                boxShadow: "0 3px 12px rgba(255,208,0,0.4)",
                 whiteSpace: "nowrap",
               }}
             >
