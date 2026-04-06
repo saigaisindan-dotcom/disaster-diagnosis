@@ -152,9 +152,19 @@ export default function ShoppingSet({ set, summaryMessage }: Props) {
         </div>
       </div>
 
-      {/* まとめてAmazonで見るボタン */}
+      {/* まとめてカートに追加ボタン */}
       <a
-        href="https://www.amazon.co.jp/s?k=防災+備蓄セット"
+        href={(() => {
+          const params = new URLSearchParams({ AssociateTag: "disasterdiagn-22" });
+          set.items.forEach((item, i) => {
+            const asin = item.url.match(/\/dp\/([A-Z0-9]{10})/)?.[1];
+            if (asin) {
+              params.set(`ASIN.${i + 1}`, asin);
+              params.set(`Quantity.${i + 1}`, String(item.count));
+            }
+          });
+          return `https://www.amazon.co.jp/gp/aws/cart/add.html?${params.toString()}`;
+        })()}
         target="_blank"
         rel="noopener noreferrer"
         style={{
@@ -173,7 +183,7 @@ export default function ShoppingSet({ set, summaryMessage }: Props) {
           boxSizing: "border-box",
         }}
       >
-        Amazonで備蓄品を確認する →
+        全商品をカートに追加する →
       </a>
     </div>
   );
