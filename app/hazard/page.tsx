@@ -1,4 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "災害を知る — 南海トラフ・津波・富士山噴火の基礎知識",
+  description: "南海トラフ巨大地震・太平洋沿岸の津波・富士山噴火の発生確率と被害規模をわかりやすく解説。自分の地域のリスクを理解して、今すぐ備えを始めましょう。",
+  alternates: { canonical: "https://disaster-diagnosis.com/hazard" },
+  openGraph: {
+    title: "災害を知る — 南海トラフ・津波・富士山噴火の基礎知識",
+    description: "南海トラフ巨大地震・太平洋沿岸の津波・富士山噴火の発生確率と被害規模をわかりやすく解説。",
+    url: "https://disaster-diagnosis.com/hazard",
+  },
+};
 
 const BG = "#1e1e1e";
 const SH1 = "#111";
