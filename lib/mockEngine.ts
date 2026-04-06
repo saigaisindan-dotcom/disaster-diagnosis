@@ -67,26 +67,28 @@ interface Product {
   amazon_url: string;
 }
 
+const TAG = "tag=disasterdiagn-22";
+
 const WATER_PRODUCTS: Product[] = [
-  { id: "water-2l-12", category: "water", name: "保存水 2L×12本（5年保存）", quantity: 24, unit: "L", price: 2980, amazon_url: "https://www.amazon.co.jp/s?k=保存水+2L+5年保存" },
-  { id: "water-500ml-24", category: "water", name: "保存水 500ml×24本（5年保存）", quantity: 12, unit: "L", price: 1680, amazon_url: "https://www.amazon.co.jp/s?k=保存水+500ml+5年保存" },
-  { id: "water-purifier", category: "water", name: "携帯浄水器（最大1000L対応）", quantity: 100, unit: "L", price: 3980, amazon_url: "https://www.amazon.co.jp/s?k=携帯浄水器+防災" },
+  { id: "water-2l-12", category: "water", name: "保存水 2L×12本（5年保存）", quantity: 24, unit: "L", price: 2980, amazon_url: `https://www.amazon.co.jp/s?k=保存水+2L+5年保存&${TAG}` },
+  { id: "water-500ml-24", category: "water", name: "保存水 500ml×24本（5年保存）", quantity: 12, unit: "L", price: 1680, amazon_url: `https://www.amazon.co.jp/s?k=保存水+500ml+5年保存&${TAG}` },
+  { id: "water-purifier", category: "water", name: "携帯浄水器（最大1000L対応）", quantity: 100, unit: "L", price: 3980, amazon_url: `https://www.amazon.co.jp/s?k=携帯浄水器+防災&${TAG}` },
 ];
 
 const FOOD_PRODUCTS: Product[] = [
-  { id: "food-alpha-10", category: "food", name: "アルファ米 10食セット（5年保存）", quantity: 10, unit: "食", price: 3200, amazon_url: "https://www.amazon.co.jp/s?k=アルファ米+10食+非常食" },
-  { id: "food-set-3days", category: "food", name: "非常食セット 3日分（9食入り）", quantity: 9, unit: "食", price: 2980, amazon_url: "https://www.amazon.co.jp/s?k=非常食セット+3日分" },
-  { id: "food-can-30", category: "food", name: "缶詰詰め合わせ 30缶セット", quantity: 30, unit: "食", price: 5800, amazon_url: "https://www.amazon.co.jp/s?k=缶詰+詰め合わせ+30缶+防災" },
+  { id: "food-alpha-10", category: "food", name: "アルファ米 10食セット（5年保存）", quantity: 10, unit: "食", price: 3200, amazon_url: `https://www.amazon.co.jp/s?k=アルファ米+10食+非常食&${TAG}` },
+  { id: "food-set-3days", category: "food", name: "非常食セット 3日分（9食入り）", quantity: 9, unit: "食", price: 2980, amazon_url: `https://www.amazon.co.jp/s?k=非常食セット+3日分&${TAG}` },
+  { id: "food-can-30", category: "food", name: "缶詰詰め合わせ 30缶セット", quantity: 30, unit: "食", price: 5800, amazon_url: `https://www.amazon.co.jp/s?k=缶詰+詰め合わせ+30缶+防災&${TAG}` },
 ];
 
 const TOILET_PRODUCTS: Product[] = [
-  { id: "toilet-100", category: "toilet", name: "携帯トイレ 100回分セット", quantity: 100, unit: "回", price: 5800, amazon_url: "https://www.amazon.co.jp/s?k=携帯トイレ+100回分" },
-  { id: "toilet-50", category: "toilet", name: "携帯トイレ 50回分セット", quantity: 50, unit: "回", price: 3200, amazon_url: "https://www.amazon.co.jp/s?k=携帯トイレ+50回分" },
+  { id: "toilet-100", category: "toilet", name: "携帯トイレ 100回分セット", quantity: 100, unit: "回", price: 5800, amazon_url: `https://www.amazon.co.jp/s?k=携帯トイレ+100回分&${TAG}` },
+  { id: "toilet-50", category: "toilet", name: "携帯トイレ 50回分セット", quantity: 50, unit: "回", price: 3200, amazon_url: `https://www.amazon.co.jp/s?k=携帯トイレ+50回分&${TAG}` },
 ];
 
 const BATTERY_PRODUCTS: Product[] = [
-  { id: "battery-20000", category: "battery", name: "モバイルバッテリー 20000mAh（ソーラー充電対応）", quantity: 1, unit: "個", price: 6800, amazon_url: "https://www.amazon.co.jp/s?k=モバイルバッテリー+20000mAh+ソーラー" },
-  { id: "battery-10000", category: "battery", name: "モバイルバッテリー 10000mAh（軽量）", quantity: 1, unit: "個", price: 3200, amazon_url: "https://www.amazon.co.jp/s?k=モバイルバッテリー+10000mAh" },
+  { id: "battery-20000", category: "battery", name: "モバイルバッテリー 20000mAh（ソーラー充電対応）", quantity: 1, unit: "個", price: 6800, amazon_url: `https://www.amazon.co.jp/s?k=モバイルバッテリー+20000mAh+ソーラー&${TAG}` },
+  { id: "battery-10000", category: "battery", name: "モバイルバッテリー 10000mAh（軽量）", quantity: 1, unit: "個", price: 3200, amazon_url: `https://www.amazon.co.jp/s?k=モバイルバッテリー+10000mAh&${TAG}` },
 ];
 
 // ─── Greedy 商品選定（コスパ順で不足を埋める） ───
