@@ -70,9 +70,13 @@ interface Product {
 const TAG = "disasterdiagn-22";
 
 const WATER_PRODUCTS: Product[] = [
+  { id: "water-irodas-2l-8", category: "water", name: "い・ろ・は・す 2L ラベルレス×8本", quantity: 16, unit: "L", price: 1280, amazon_url: `https://www.amazon.co.jp/dp/B08TV9VDR7?tag=${TAG}` },
   { id: "water-2l-12", category: "water", name: "サーフビバレッジ 長期保存水 2L×12本（5年保存）", quantity: 24, unit: "L", price: 2980, amazon_url: `https://www.amazon.co.jp/dp/B014FKLLXA?tag=${TAG}` },
   { id: "water-500ml-24", category: "water", name: "Happy Belly 長期保存水 500ml×24本（5年保存）", quantity: 12, unit: "L", price: 1680, amazon_url: `https://www.amazon.co.jp/dp/B077S3698L?tag=${TAG}` },
-  { id: "water-purifier", category: "water", name: "SAKUTTO 携帯浄水器 防災・アウトドア用 日本正規品", quantity: 100, unit: "L", price: 3980, amazon_url: `https://www.amazon.co.jp/dp/B09GHBNG6Y?tag=${TAG}` },
+];
+
+const PURIFIER_PRODUCTS: Product[] = [
+  { id: "purifier-sakutto", category: "purifier", name: "SAKUTTO 携帯浄水器 防災・アウトドア用 日本正規品", quantity: 1, unit: "個", price: 3980, amazon_url: `https://www.amazon.co.jp/dp/B09GHBNG6Y?tag=${TAG}` },
 ];
 
 const FOOD_PRODUCTS: Product[] = [
@@ -169,6 +173,7 @@ export function runDiagnosis(req: DiagnosisRequest): DiagnosisResponse {
     ...selectProducts(food_shortage, FOOD_PRODUCTS),
     ...selectProducts(toilet_shortage, TOILET_PRODUCTS),
     ...selectProducts(battery_shortage, BATTERY_PRODUCTS),
+    ...selectProducts(1, PURIFIER_PRODUCTS),
   ];
 
   const total_price = items.reduce((sum, item) => sum + item.price * item.count, 0);
