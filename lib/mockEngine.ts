@@ -72,23 +72,23 @@ const TAG = "disasterdiagn-22";
 const WATER_PRODUCTS: Product[] = [
   { id: "water-2l-12", category: "water", name: "サーフビバレッジ 長期保存水 2L×12本（5年保存）", quantity: 24, unit: "L", price: 2980, amazon_url: `https://www.amazon.co.jp/dp/B014FKLLXA?tag=${TAG}` },
   { id: "water-500ml-24", category: "water", name: "Happy Belly 長期保存水 500ml×24本（5年保存）", quantity: 12, unit: "L", price: 1680, amazon_url: `https://www.amazon.co.jp/dp/B077S3698L?tag=${TAG}` },
-  { id: "water-purifier", category: "water", name: "Sawyer Mini SP128 携帯浄水器 日本正規品（38万L対応）", quantity: 100, unit: "L", price: 3980, amazon_url: `https://www.amazon.co.jp/dp/B00V7X60X0?tag=${TAG}` },
+  { id: "water-purifier", category: "water", name: "SAKUTTO 携帯浄水器 防災・アウトドア用 日本正規品", quantity: 100, unit: "L", price: 3980, amazon_url: `https://www.amazon.co.jp/dp/B0BRCPTH3L?tag=${TAG}` },
 ];
 
 const FOOD_PRODUCTS: Product[] = [
   { id: "food-alpha-10", category: "food", name: "尾西食品 アルファ米 10種類セット（5年保存）", quantity: 10, unit: "食", price: 3200, amazon_url: `https://www.amazon.co.jp/dp/B01LAWGDCU?tag=${TAG}` },
   { id: "food-set-3days", category: "food", name: "PEACEUP 5年保存 非常食セット 3日分 1人用", quantity: 9, unit: "食", price: 2980, amazon_url: `https://www.amazon.co.jp/dp/B0BVTDY7QY?tag=${TAG}` },
-  { id: "food-can-36", category: "food", name: "サンヨー堂 おかず缶詰 非常食 5年保存 36缶セット", quantity: 36, unit: "食", price: 5800, amazon_url: `https://www.amazon.co.jp/dp/B0876L3X2N?tag=${TAG}` },
+  { id: "food-can-6", category: "food", name: "吉野家 缶飯 牛丼 6缶セット 非常食・保存食", quantity: 6, unit: "食", price: 2500, amazon_url: `https://www.amazon.co.jp/dp/B07YTDRDDB?tag=${TAG}` },
 ];
 
 const TOILET_PRODUCTS: Product[] = [
-  { id: "toilet-100", category: "toilet", name: "コクヨ 防災 袋式トイレ 100回分", quantity: 100, unit: "回", price: 5800, amazon_url: `https://www.amazon.co.jp/dp/B075T2P56L?tag=${TAG}` },
+  { id: "toilet-50a", category: "toilet", name: "簡易トイレ SANYO50 50回分 日本製 15年保存", quantity: 50, unit: "回", price: 3200, amazon_url: `https://www.amazon.co.jp/dp/B0714Q37MM?tag=${TAG}` },
   { id: "toilet-50", category: "toilet", name: "モシモハック 簡易トイレ 50回分 15年保存", quantity: 50, unit: "回", price: 3200, amazon_url: `https://www.amazon.co.jp/dp/B0BQ9C64X3?tag=${TAG}` },
 ];
 
 const BATTERY_PRODUCTS: Product[] = [
   { id: "battery-20000", category: "battery", name: "Philips ソーラーモバイルバッテリー 20000mAh LED/SOSライト付", quantity: 1, unit: "個", price: 6800, amazon_url: `https://www.amazon.co.jp/dp/B0BV2PQ934?tag=${TAG}` },
-  { id: "battery-10000", category: "battery", name: "Anker Power Bank 10000mAh 最薄型 USB PD対応", quantity: 1, unit: "個", price: 3200, amazon_url: `https://www.amazon.co.jp/dp/B0CQX67KTW?tag=${TAG}` },
+  { id: "battery-radio", category: "battery", name: "多機能防災ラジオ ソーラー・手回し充電 LED懐中電灯付", quantity: 1, unit: "個", price: 2980, amazon_url: `https://www.amazon.co.jp/dp/B0C3VQV977?tag=${TAG}` },
 ];
 
 // ─── Greedy 商品選定（コスパ順で不足を埋める） ───
