@@ -188,8 +188,8 @@ export default function ProcessingPage() {
         @keyframes glow { 0%,100%{text-shadow:0 0 8px rgba(255,26,46,0.4)} 50%{text-shadow:0 0 20px rgba(255,26,46,0.9)} }
         @keyframes scanH { 0%{top:-2px;opacity:0.8} 100%{top:100%;opacity:0} }
         @keyframes pulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
-        @keyframes mapScanLine { 0%{transform:translateY(0px);opacity:1} 95%{opacity:1} 100%{transform:translateY(195px);opacity:0} }
-        @keyframes mapClipGrow { from{height:0px} to{height:195px} }
+        @keyframes mapScanLine { 0%{transform:translateY(0px);opacity:1} 95%{opacity:1} 100%{transform:translateY(148px);opacity:0} }
+        @keyframes mapClipGrow { from{height:0px} to{height:148px} }
         @keyframes mapGlowMove { from{transform:translateY(-12px)} to{transform:translateY(183px)} }
         @keyframes cityPulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
       `}</style>
@@ -280,81 +280,77 @@ export default function ProcessingPage() {
                 <span style={{ color: "#444", fontSize: 9, fontFamily: "monospace" }}>130°E–146°E | 31°N–45°N</span>
               </div>
               <div style={{ display: "flex", justifyContent: "center" }}>
-                <svg viewBox="0 0 160 195" width={148} height={180} style={{ overflow: "visible" }}>
-                  <defs>
-                    <clipPath id="scanClip">
-                      <rect x="0" y="0" width="160" height="0"
-                        style={{ animation: "mapClipGrow 2s linear infinite" }} />
-                    </clipPath>
-                    <linearGradient id="scanGlow" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="rgba(255,26,46,0)" />
-                      <stop offset="100%" stopColor="rgba(255,26,46,0.18)" />
-                    </linearGradient>
-                  </defs>
+                <div style={{ position: "relative", width: 148, height: 148 }}>
 
                   {/* グリッド */}
-                  {[20,40,60,80,100,120,140].map(x => (
-                    <line key={`gx${x}`} x1={x} y1={0} x2={x} y2={195} stroke="rgba(255,26,46,0.06)" strokeWidth="0.5" />
-                  ))}
-                  {[20,40,60,80,100,120,140,160,180].map(y => (
-                    <line key={`gy${y}`} x1={0} y1={y} x2={160} y2={y} stroke="rgba(255,26,46,0.06)" strokeWidth="0.5" />
-                  ))}
-
-                  {/* 島アウトライン（薄い） */}
-                  {[
-                    // 北海道: 宗谷岬(N)・知床(NE)・エリモ岬(S)・松前(SW)
-                    "M 99,58 C 101,54 104,50 104,48 L 101,43 C 99,37 99,33 101,29 L 104,23 L 110,17 L 113,12 L 116,6 C 118,6 121,8 124,14 L 130,17 L 139,20 L 143,22 C 145,26 146,30 145,35 L 143,40 L 137,45 L 127,51 L 120,49 L 113,51 C 110,53 107,55 105,58 Z",
-                    // 本州: 下北(N突)・三陸・関東・伊豆(S突)・紀伊(S突)・能登(N突)・東北日本海
-                    "M 105,65 L 108,57 L 111,62 L 112,70 L 113,83 L 110,98 L 108,109 L 107,122 L 107,130 L 99,135 L 95,134 C 93,135 92,137 92,138 L 88,144 C 86,143 84,141 84,141 L 78,143 L 73,148 L 65,154 L 60,159 C 58,157 57,153 57,153 L 55,148 C 54,145 53,142 53,142 L 49,140 L 43,141 L 31,146 L 18,152 L 22,147 L 26,141 L 34,134 L 47,132 L 52,131 L 57,132 L 67,116 L 69,109 L 74,107 L 76,113 L 70,118 L 73,117 L 78,112 L 89,102 L 98,89 L 100,67 Z",
-                    // 四国: 足摺岬(SW)・室戸岬(SE)
-                    "M 51,149 L 55,154 L 52,162 L 46,161 L 39,168 L 35,167 L 32,158 L 36,150 L 46,148 Z",
-                    // 九州: 佐多岬(S)・長崎(W)
-                    "M 17,153 L 22,161 L 24,170 L 22,178 L 18,185 L 14,189 L 12,183 L 11,177 L 13,174 L 14,171 L 12,167 L 8,167 L 6,160 L 9,159 L 11,158 L 12,157 Z",
-                  ].map((d, i) => (
-                    <path key={i} d={d} fill="rgba(255,26,46,0.05)" stroke="rgba(255,26,46,0.25)" strokeWidth="0.8" />
-                  ))}
-
-                  {/* スキャン済みエリア（明るい） */}
-                  <g clipPath="url(#scanClip)">
-                    {[
-                      "M 99,58 C 101,54 104,50 104,48 L 101,43 C 99,37 99,33 101,29 L 104,23 L 110,17 L 113,12 L 116,6 C 118,6 121,8 124,14 L 130,17 L 139,20 L 143,22 C 145,26 146,30 145,35 L 143,40 L 137,45 L 127,51 L 120,49 L 113,51 C 110,53 107,55 105,58 Z",
-                      "M 105,65 L 108,57 L 111,62 L 112,70 L 113,83 L 110,98 L 108,109 L 107,122 L 107,130 L 99,135 L 95,134 C 93,135 92,137 92,138 L 88,144 C 86,143 84,141 84,141 L 78,143 L 73,148 L 65,154 L 60,159 C 58,157 57,153 57,153 L 55,148 C 54,145 53,142 53,142 L 49,140 L 43,141 L 31,146 L 18,152 L 22,147 L 26,141 L 34,134 L 47,132 L 52,131 L 57,132 L 67,116 L 69,109 L 74,107 L 76,113 L 70,118 L 73,117 L 78,112 L 89,102 L 98,89 L 100,67 Z",
-                      "M 51,149 L 55,154 L 52,162 L 46,161 L 39,168 L 35,167 L 32,158 L 36,150 L 46,148 Z",
-                      "M 17,153 L 22,161 L 24,170 L 22,178 L 18,185 L 14,189 L 12,183 L 11,177 L 13,174 L 14,171 L 12,167 L 8,167 L 6,160 L 9,159 L 11,158 L 12,157 Z",
-                    ].map((d, i) => (
-                      <path key={i} d={d} fill="rgba(255,26,46,0.22)" stroke="#ff1a2e" strokeWidth="0.8" />
+                  <svg width="148" height="148" style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 1 }}>
+                    {[30,60,90,120].map(x => (
+                      <line key={`gx${x}`} x1={x} y1={0} x2={x} y2={148} stroke="rgba(255,26,46,0.07)" strokeWidth="0.5" />
                     ))}
-                  </g>
+                    {[30,60,90,120].map(y => (
+                      <line key={`gy${y}`} x1={0} y1={y} x2={148} y2={y} stroke="rgba(255,26,46,0.07)" strokeWidth="0.5" />
+                    ))}
+                  </svg>
 
-                  {/* スキャンライン（CSS animation） */}
-                  <g style={{ animation: "mapScanLine 2s linear infinite" }}>
-                    <rect x="0" y="-10" width="160" height="10" fill="url(#scanGlow)" />
-                    <line x1="0" y1="0" x2="160" y2="0" stroke="rgba(255,80,80,0.9)" strokeWidth="1.5" />
-                  </g>
+                  {/* ベース（暗い：未スキャン） */}
+                  <img src="/japan-map.png" alt="" style={{
+                    width: 148, height: 148, objectFit: "contain", display: "block",
+                    filter: "invert(1) hue-rotate(180deg) brightness(0.3)",
+                    mixBlendMode: "screen",
+                  }} />
 
-                  {/* 都市マーカー（実座標ベース） */}
+                  {/* スキャン済み（明るい） */}
+                  <div style={{
+                    position: "absolute", top: 0, left: 0, width: 148,
+                    overflow: "hidden",
+                    animation: "mapClipGrow 2s linear infinite",
+                    zIndex: 2,
+                  }}>
+                    <img src="/japan-map.png" alt="" style={{
+                      width: 148, height: 148, objectFit: "contain", display: "block",
+                      filter: "invert(1) hue-rotate(180deg) brightness(1.1)",
+                      mixBlendMode: "screen",
+                    }} />
+                  </div>
+
+                  {/* スキャンライン */}
+                  <div style={{
+                    position: "absolute", left: 0, right: 0, height: 2, top: 0,
+                    background: "rgba(255,80,80,0.95)",
+                    boxShadow: "0 -6px 10px rgba(255,26,46,0.35), 0 2px 6px rgba(255,26,46,0.35)",
+                    animation: "mapScanLine 2s linear infinite",
+                    zIndex: 3, pointerEvents: "none",
+                  }} />
+
+                  {/* 都市マーカー */}
                   {[
-                    { x: 110, y: 37,  label: "SAPPORO" },
-                    { x: 106, y: 97,  label: "SENDAI" },
-                    { x: 95,  y: 130, label: "TOKYO" },
-                    { x: 70,  y: 136, label: "NAGOYA" },
-                    { x: 58,  y: 143, label: "OSAKA" },
-                    { x: 12,  y: 157, label: "FUKUOKA" },
+                    { x: 99, y: 24,  label: "SAPPORO" },
+                    { x: 95, y: 63,  label: "SENDAI" },
+                    { x: 86, y: 85,  label: "TOKYO" },
+                    { x: 64, y: 89,  label: "NAGOYA" },
+                    { x: 53, y: 93,  label: "OSAKA" },
+                    { x: 14, y: 102, label: "FUKUOKA" },
                   ].map(city => {
-                    const delay = `${(city.y / 195 * 2).toFixed(2)}s`;
+                    const delay = `${(city.y / 148 * 2).toFixed(2)}s`;
                     return (
-                      <g key={city.label} style={{ animation: `cityPulse 2s linear ${delay} infinite` }}>
-                        <circle cx={city.x} cy={city.y} r="2.5"
-                          fill="#ff1a2e"
-                          stroke="rgba(255,80,80,0.6)"
-                          strokeWidth="1" />
-                        <text x={city.x + 4} y={city.y + 3}
-                          fill="rgba(255,120,120,0.85)"
-                          fontSize="5" fontFamily="monospace">{city.label}</text>
-                      </g>
+                      <div key={city.label} style={{
+                        position: "absolute", left: city.x, top: city.y,
+                        zIndex: 4, animation: `cityPulse 2s linear ${delay} infinite`,
+                      }}>
+                        <div style={{
+                          width: 5, height: 5, borderRadius: "50%",
+                          background: "#ff1a2e", border: "1px solid rgba(255,80,80,0.6)",
+                          position: "absolute", transform: "translate(-50%,-50%)",
+                        }} />
+                        <span style={{
+                          position: "absolute", left: 5, top: -3,
+                          color: "rgba(255,120,120,0.85)",
+                          fontSize: 5, fontFamily: "monospace", whiteSpace: "nowrap",
+                        }}>{city.label}</span>
+                      </div>
                     );
                   })}
-                </svg>
+                </div>
               </div>
             </div>
 
@@ -362,7 +358,7 @@ export default function ProcessingPage() {
             <div style={{ width: 110, flexShrink: 0 }}>
               {[
                 { label: "SCAN LINE", value: "ACTIVE" },
-                { label: "RESOLUTION", value: "160×195" },
+                { label: "RESOLUTION", value: "148×148" },
                 { label: "TARGETS", value: "6/6" },
                 { label: "THREAT LV", value: done ? "HIGH" : "SCANNING" },
               ].map(({ label, value }) => (
