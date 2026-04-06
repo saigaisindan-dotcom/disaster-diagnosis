@@ -107,7 +107,7 @@ export default function ShoppingSet({ set, summaryMessage }: Props) {
                   {CATEGORY_LABEL[item.category]}
                 </span>
                 <span style={{ color: "#555", fontSize: 10 }}>
-                  {item.quantity}{item.unit}/個 × {item.count}個
+                  {item.quantity < 999 ? `${item.quantity}${item.unit}/個 × ` : ""}{item.count}個
                 </span>
               </div>
               <div style={{ color: "#e8e8e8", fontSize: 13, fontWeight: 700, lineHeight: 1.4, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
