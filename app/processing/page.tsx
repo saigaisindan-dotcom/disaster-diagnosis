@@ -188,8 +188,8 @@ export default function ProcessingPage() {
         @keyframes glow { 0%,100%{text-shadow:0 0 8px rgba(255,26,46,0.4)} 50%{text-shadow:0 0 20px rgba(255,26,46,0.9)} }
         @keyframes scanH { 0%{top:-2px;opacity:0.8} 100%{top:100%;opacity:0} }
         @keyframes pulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
-        @keyframes mapScanLine { 0%{transform:translateY(0px);opacity:1} 95%{opacity:1} 100%{transform:translateY(148px);opacity:0} }
-        @keyframes mapClipGrow { from{height:0px} to{height:148px} }
+        @keyframes mapScanLine { 0%{transform:translateY(0px);opacity:1} 95%{opacity:1} 100%{transform:translateY(180px);opacity:0} }
+        @keyframes mapClipGrow { from{height:0px} to{height:180px} }
         @keyframes mapGlowMove { from{transform:translateY(-12px)} to{transform:translateY(183px)} }
         @keyframes cityPulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
       `}</style>
@@ -280,7 +280,7 @@ export default function ProcessingPage() {
                 <span style={{ color: "#444", fontSize: 9, fontFamily: "monospace" }}>130°E–146°E | 31°N–45°N</span>
               </div>
               <div style={{ display: "flex", justifyContent: "center" }}>
-                <div style={{ position: "relative", width: 148, height: 148 }}>
+                <div style={{ position: "relative", width: 180, height: 180 }}>
 
                   {/* SVGフィルター定義: 白→透明, 赤→#ff1a2e */}
                   <svg width="0" height="0" style={{ position: "absolute" }}>
@@ -312,18 +312,18 @@ export default function ProcessingPage() {
                   </svg>
 
                   {/* グリッド */}
-                  <svg width="148" height="148" style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 1 }}>
-                    {[30,60,90,120].map(x => (
-                      <line key={`gx${x}`} x1={x} y1={0} x2={x} y2={148} stroke="rgba(255,26,46,0.07)" strokeWidth="0.5" />
+                  <svg width="180" height="180" style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 1 }}>
+                    {[30,60,90,120,150].map(x => (
+                      <line key={`gx${x}`} x1={x} y1={0} x2={x} y2={180} stroke="rgba(255,26,46,0.07)" strokeWidth="0.5" />
                     ))}
-                    {[30,60,90,120].map(y => (
-                      <line key={`gy${y}`} x1={0} y1={y} x2={148} y2={y} stroke="rgba(255,26,46,0.07)" strokeWidth="0.5" />
+                    {[30,60,90,120,150].map(y => (
+                      <line key={`gy${y}`} x1={0} y1={y} x2={180} y2={y} stroke="rgba(255,26,46,0.07)" strokeWidth="0.5" />
                     ))}
                   </svg>
 
                   {/* ベース（暗い：未スキャン） */}
                   <img src="/japan-map.png" alt="" style={{
-                    width: 148, height: 148, objectFit: "contain", display: "block",
+                    width: 180, height: 180, objectFit: "contain", display: "block",
                     filter: "url(#japanMapDim)",
                   }} />
 
@@ -335,7 +335,7 @@ export default function ProcessingPage() {
                     zIndex: 2,
                   }}>
                     <img src="/japan-map.png" alt="" style={{
-                      width: 148, height: 148, objectFit: "contain", display: "block",
+                      width: 180, height: 180, objectFit: "contain", display: "block",
                       filter: "url(#japanMapBright)",
                     }} />
                   </div>
@@ -351,14 +351,14 @@ export default function ProcessingPage() {
 
                   {/* 都市マーカー */}
                   {[
-                    { x: 99, y: 24,  label: "SAPPORO" },
-                    { x: 95, y: 63,  label: "SENDAI" },
-                    { x: 86, y: 85,  label: "TOKYO" },
-                    { x: 64, y: 89,  label: "NAGOYA" },
-                    { x: 53, y: 93,  label: "OSAKA" },
-                    { x: 14, y: 102, label: "FUKUOKA" },
+                    { x: 120, y: 29,  label: "SAPPORO" },
+                    { x: 116, y: 77,  label: "SENDAI" },
+                    { x: 105, y: 103, label: "TOKYO" },
+                    { x: 78,  y: 108, label: "NAGOYA" },
+                    { x: 64,  y: 113, label: "OSAKA" },
+                    { x: 17,  y: 124, label: "FUKUOKA" },
                   ].map(city => {
-                    const delay = `${(city.y / 148 * 2).toFixed(2)}s`;
+                    const delay = `${(city.y / 180 * 2).toFixed(2)}s`;
                     return (
                       <div key={city.label} style={{
                         position: "absolute", left: city.x, top: city.y,
@@ -385,7 +385,7 @@ export default function ProcessingPage() {
             <div style={{ width: 110, flexShrink: 0 }}>
               {[
                 { label: "SCAN LINE", value: "ACTIVE" },
-                { label: "RESOLUTION", value: "148×148" },
+                { label: "RESOLUTION", value: "180×180" },
                 { label: "TARGETS", value: "6/6" },
                 { label: "THREAT LV", value: done ? "HIGH" : "SCANNING" },
               ].map(({ label, value }) => (
