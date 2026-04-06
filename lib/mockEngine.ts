@@ -72,7 +72,7 @@ const TAG = "disasterdiagn-22";
 const WATER_PRODUCTS: Product[] = [
   { id: "water-2l-12", category: "water", name: "サーフビバレッジ 長期保存水 2L×12本（5年保存）", quantity: 24, unit: "L", price: 2980, amazon_url: `https://www.amazon.co.jp/dp/B014FKLLXA?tag=${TAG}` },
   { id: "water-500ml-24", category: "water", name: "Happy Belly 長期保存水 500ml×24本（5年保存）", quantity: 12, unit: "L", price: 1680, amazon_url: `https://www.amazon.co.jp/dp/B077S3698L?tag=${TAG}` },
-  { id: "water-purifier", category: "water", name: "SAWYER ソーヤーミニ SP128 携帯浄水器 日本正規品", quantity: 100, unit: "L", price: 3980, amazon_url: `https://www.amazon.co.jp/dp/B00V7X60X0?tag=${TAG}` },
+  { id: "water-purifier", category: "water", name: "SAKUTTO 携帯浄水器 防災・アウトドア用 日本正規品", quantity: 100, unit: "L", price: 3980, amazon_url: `https://www.amazon.co.jp/dp/B09GHBNG6Y?tag=${TAG}` },
 ];
 
 const FOOD_PRODUCTS: Product[] = [
@@ -88,7 +88,7 @@ const TOILET_PRODUCTS: Product[] = [
 
 const BATTERY_PRODUCTS: Product[] = [
   { id: "battery-20000", category: "battery", name: "Philips ソーラーモバイルバッテリー 20000mAh LED/SOSライト付", quantity: 1, unit: "個", price: 6800, amazon_url: `https://www.amazon.co.jp/dp/B0BV2PQ934?tag=${TAG}` },
-  { id: "battery-radio", category: "battery", name: "FIELDOOR 防災ラジオ 手回し・ソーラー充電 5800mAh スマホ充電対応", quantity: 1, unit: "個", price: 4950, amazon_url: `https://www.amazon.co.jp/dp/B0DX1X72XY?tag=${TAG}` },
+  { id: "battery-solar", category: "battery", name: "ソーラーモバイルバッテリー 61800mAh 手回し発電 6台同時充電対応", quantity: 1, unit: "個", price: 4950, amazon_url: `https://www.amazon.co.jp/dp/B0FB8K6YT1?tag=${TAG}` },
 ];
 
 // ─── Greedy 商品選定（コスパ順で不足を埋める） ───
