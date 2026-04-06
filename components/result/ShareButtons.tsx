@@ -72,7 +72,7 @@ export default function ShareButtons({ risk, summaryMessage, prefecture, city }:
         SHARE
       </div>
       <h3 style={{ color: "#e8e8e8", fontSize: 15, fontWeight: 700, margin: "0 0 18px", paddingBottom: 14, borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-        診断結果をシェアする
+        災害リスク診断をシェアする
       </h3>
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
         {buttons.map(({ label, url, icon, bg, color }) => (
