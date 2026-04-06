@@ -282,6 +282,35 @@ export default function ProcessingPage() {
               <div style={{ display: "flex", justifyContent: "center" }}>
                 <div style={{ position: "relative", width: 148, height: 148 }}>
 
+                  {/* SVGフィルター定義: 白→透明, 赤→#ff1a2e */}
+                  <svg width="0" height="0" style={{ position: "absolute" }}>
+                    <defs>
+                      {/* 明るい: 白を透明化し陸地を#ff1a2eに */}
+                      <filter id="japanMapBright" colorInterpolationFilters="sRGB">
+                        <feColorMatrix type="saturate" values="0" result="gray"/>
+                        <feComponentTransfer in="gray" result="inv">
+                          <feFuncR type="linear" slope="-1" intercept="1"/>
+                          <feFuncG type="linear" slope="-1" intercept="1"/>
+                          <feFuncB type="linear" slope="-1" intercept="1"/>
+                        </feComponentTransfer>
+                        <feColorMatrix in="inv" type="matrix" values="0 0 0 0 1  0 0 0 0 0.102  0 0 0 0 0.18  0.6 0.6 0.6 0 0"/>
+                      </filter>
+                      {/* 暗い: 同じ変換+透明度30% */}
+                      <filter id="japanMapDim" colorInterpolationFilters="sRGB">
+                        <feColorMatrix type="saturate" values="0" result="gray"/>
+                        <feComponentTransfer in="gray" result="inv">
+                          <feFuncR type="linear" slope="-1" intercept="1"/>
+                          <feFuncG type="linear" slope="-1" intercept="1"/>
+                          <feFuncB type="linear" slope="-1" intercept="1"/>
+                        </feComponentTransfer>
+                        <feColorMatrix in="inv" type="matrix" values="0 0 0 0 1  0 0 0 0 0.102  0 0 0 0 0.18  0.6 0.6 0.6 0 0" result="colored"/>
+                        <feComponentTransfer in="colored">
+                          <feFuncA type="linear" slope="0.28"/>
+                        </feComponentTransfer>
+                      </filter>
+                    </defs>
+                  </svg>
+
                   {/* グリッド */}
                   <svg width="148" height="148" style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 1 }}>
                     {[30,60,90,120].map(x => (
@@ -295,8 +324,7 @@ export default function ProcessingPage() {
                   {/* ベース（暗い：未スキャン） */}
                   <img src="/japan-map.png" alt="" style={{
                     width: 148, height: 148, objectFit: "contain", display: "block",
-                    filter: "invert(1) hue-rotate(180deg) brightness(0.3)",
-                    mixBlendMode: "screen",
+                    filter: "url(#japanMapDim)",
                   }} />
 
                   {/* スキャン済み（明るい） */}
@@ -308,8 +336,7 @@ export default function ProcessingPage() {
                   }}>
                     <img src="/japan-map.png" alt="" style={{
                       width: 148, height: 148, objectFit: "contain", display: "block",
-                      filter: "invert(1) hue-rotate(180deg) brightness(1.1)",
-                      mixBlendMode: "screen",
+                      filter: "url(#japanMapBright)",
                     }} />
                   </div>
 
