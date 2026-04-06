@@ -8,7 +8,6 @@ import AddressInput from "./AddressInput";
 import HouseholdInput from "./HouseholdInput";
 import StockpileInput from "./StockpileInput";
 
-const BG = "#1e1e1e";
 const SH1 = "#111";
 const SH2 = "#2b2b2b";
 const RAISED = `5px 5px 14px ${SH1}, -4px -4px 10px ${SH2}`;
