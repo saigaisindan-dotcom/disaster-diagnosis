@@ -91,7 +91,7 @@ const TOILET_PRODUCTS: Product[] = [
 ];
 
 const BATTERY_PRODUCTS: Product[] = [
-  { id: "battery-main", category: "battery", name: "電源（防災用）", quantity: 1, unit: "個", price: 4950, amazon_url: `https://www.amazon.co.jp/dp/B0FX431XBQ?tag=${TAG}` },
+  { id: "battery-main", category: "battery", name: "電源（防災用）", quantity: 999, unit: "個", price: 86000, amazon_url: `https://www.amazon.co.jp/dp/B0FX431XBQ?tag=${TAG}` },
 ];
 
 const MOBILE_PRODUCTS: Product[] = [
