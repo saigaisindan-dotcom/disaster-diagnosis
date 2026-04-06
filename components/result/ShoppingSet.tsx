@@ -9,6 +9,7 @@ const CATEGORY_LABEL: Record<ProductCategory, string> = {
   toilet: "トイレ",
   battery: "電源",
   purifier: "浄水器",
+  mobile: "モバイルバッテリー",
 };
 
 const CATEGORY_ICON: Record<ProductCategory, string> = {
@@ -17,6 +18,7 @@ const CATEGORY_ICON: Record<ProductCategory, string> = {
   toilet: "🚽",
   battery: "🔋",
   purifier: "🔵",
+  mobile: "📱",
 };
 
 interface Props {

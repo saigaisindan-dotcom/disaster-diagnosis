@@ -91,8 +91,11 @@ const TOILET_PRODUCTS: Product[] = [
 ];
 
 const BATTERY_PRODUCTS: Product[] = [
-  { id: "battery-20000", category: "battery", name: "Philips ソーラーモバイルバッテリー 20000mAh LED/SOSライト付", quantity: 1, unit: "個", price: 6800, amazon_url: `https://www.amazon.co.jp/dp/B0BV2PQ934?tag=${TAG}` },
-  { id: "battery-solar", category: "battery", name: "ソーラーモバイルバッテリー 61800mAh 手回し発電 6台同時充電対応", quantity: 1, unit: "個", price: 4950, amazon_url: `https://www.amazon.co.jp/dp/B0FB8K6YT1?tag=${TAG}` },
+  { id: "battery-main", category: "battery", name: "電源（防災用）", quantity: 1, unit: "個", price: 4950, amazon_url: `https://www.amazon.co.jp/dp/B0FX431XBQ?tag=${TAG}` },
+];
+
+const MOBILE_PRODUCTS: Product[] = [
+  { id: "mobile-solar-61800", category: "mobile", name: "ソーラーモバイルバッテリー 61800mAh 手回し発電 6台同時充電対応", quantity: 1, unit: "個", price: 4950, amazon_url: `https://www.amazon.co.jp/dp/B0FB8K6YT1?tag=${TAG}` },
 ];
 
 // ─── Greedy 商品選定（コスパ順で不足を埋める） ───
@@ -173,6 +176,7 @@ export function runDiagnosis(req: DiagnosisRequest): DiagnosisResponse {
     ...selectProducts(food_shortage, FOOD_PRODUCTS),
     ...selectProducts(toilet_shortage, TOILET_PRODUCTS),
     ...selectProducts(battery_shortage, BATTERY_PRODUCTS),
+    ...selectProducts(1, MOBILE_PRODUCTS),
     ...selectProducts(1, PURIFIER_PRODUCTS),
   ];
 

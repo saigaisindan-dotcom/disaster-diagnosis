@@ -29,7 +29,7 @@ export interface LifelineDisruption {
   toiletIssueDays: number;
 }
 
-export type ProductCategory = "water" | "food" | "toilet" | "battery" | "purifier";
+export type ProductCategory = "water" | "food" | "toilet" | "battery" | "purifier" | "mobile";
 
 export interface SetItem {
   id: string;
