@@ -72,13 +72,13 @@ const TAG = "disasterdiagn-22";
 const WATER_PRODUCTS: Product[] = [
   { id: "water-2l-12", category: "water", name: "サーフビバレッジ 長期保存水 2L×12本（5年保存）", quantity: 24, unit: "L", price: 2980, amazon_url: `https://www.amazon.co.jp/dp/B014FKLLXA?tag=${TAG}` },
   { id: "water-500ml-24", category: "water", name: "Happy Belly 長期保存水 500ml×24本（5年保存）", quantity: 12, unit: "L", price: 1680, amazon_url: `https://www.amazon.co.jp/dp/B077S3698L?tag=${TAG}` },
-  { id: "water-purifier", category: "water", name: "SAKUTTO 携帯浄水器 防災・アウトドア用", quantity: 100, unit: "L", price: 3980, amazon_url: `https://www.amazon.co.jp/dp/B0BRCPTH3L?tag=${TAG}` },
+  { id: "water-purifier", category: "water", name: "Sawyer Mini SP128 携帯浄水器 日本正規品（38万L対応）", quantity: 100, unit: "L", price: 3980, amazon_url: `https://www.amazon.co.jp/dp/B00V7X60X0?tag=${TAG}` },
 ];
 
 const FOOD_PRODUCTS: Product[] = [
   { id: "food-alpha-10", category: "food", name: "尾西食品 アルファ米 10種類セット（5年保存）", quantity: 10, unit: "食", price: 3200, amazon_url: `https://www.amazon.co.jp/dp/B01LAWGDCU?tag=${TAG}` },
-  { id: "food-set-3days", category: "food", name: "PEACEUP 5年保存 非常食セット 3日分 1人用", quantity: 9, unit: "食", price: 2980, amazon_url: `https://www.amazon.co.jp/dp/B077LP49GZ?tag=${TAG}` },
-  { id: "food-can-24", category: "food", name: "サンヨー堂 おかず缶詰 非常食 5年保存 24缶セット", quantity: 24, unit: "食", price: 5800, amazon_url: `https://www.amazon.co.jp/dp/B0BVR4L2KQ?tag=${TAG}` },
+  { id: "food-set-3days", category: "food", name: "PEACEUP 5年保存 非常食セット 3日分 1人用", quantity: 9, unit: "食", price: 2980, amazon_url: `https://www.amazon.co.jp/dp/B0BVTDY7QY?tag=${TAG}` },
+  { id: "food-can-36", category: "food", name: "サンヨー堂 おかず缶詰 非常食 5年保存 36缶セット", quantity: 36, unit: "食", price: 5800, amazon_url: `https://www.amazon.co.jp/dp/B0876L3X2N?tag=${TAG}` },
 ];
 
 const TOILET_PRODUCTS: Product[] = [
