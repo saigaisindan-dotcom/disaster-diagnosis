@@ -323,13 +323,14 @@ export default function ProcessingPage() {
 
                   {/* ベース（暗い：未スキャン） */}
                   <img src="/japan-map.png" alt="" style={{
+                    position: "absolute", top: 0, left: 0,
                     width: 180, height: 180, objectFit: "contain", display: "block",
                     filter: "url(#japanMapDim)",
                   }} />
 
                   {/* スキャン済み（明るい） */}
                   <div style={{
-                    position: "absolute", top: 0, left: 0, width: 148,
+                    position: "absolute", top: 0, left: 0, width: 180,
                     overflow: "hidden",
                     animation: "mapClipGrow 2s linear infinite",
                     zIndex: 2,
