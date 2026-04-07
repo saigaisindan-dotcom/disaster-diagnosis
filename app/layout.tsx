@@ -81,6 +81,18 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-JM0QC6H4RF" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-JM0QC6H4RF');
+            `,
+          }}
+        />
       </head>
       <body style={{ background: "#1e1e1e", color: "#e8e8e8" }} className="antialiased">
         {children}
