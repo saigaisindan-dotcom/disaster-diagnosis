@@ -133,24 +133,6 @@ export default function ShoppingSet({ set, summaryMessage }: Props) {
         ))}
       </div>
 
-      {/* 合計金額 */}
-      <div style={{
-        boxShadow: `inset 4px 4px 10px ${SH1}, inset -3px -3px 8px ${SH2}`,
-        borderRadius: 12,
-        padding: "16px 20px",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        marginBottom: 16,
-      }}>
-        <div>
-          <div style={{ color: "#888", fontSize: 11, letterSpacing: "0.1em", marginBottom: 4 }}>合計金額（税込）</div>
-          <div style={{ color: "#bbb", fontSize: 11 }}>{set.items.length}商品</div>
-        </div>
-        <div style={{ color: "#ff1a2e", fontSize: 28, fontWeight: 900, lineHeight: 1 }}>
-          ¥{set.total_price.toLocaleString()}
-        </div>
-      </div>
 
       {/* まとめてカートに追加ボタン */}
       <a
